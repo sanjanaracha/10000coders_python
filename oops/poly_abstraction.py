@@ -18,7 +18,7 @@ class Product:
             self.__price = price
 
     def apply_discount(self, percent):
-        if 0 <= percent <= 50:
+        if percent <= 50:
             discount = (self.__price * percent) / 100
             self.__price -= discount
 
@@ -43,7 +43,6 @@ Add method change_password(old_pwd, new_pwd)
 Change only if old password is correct
 New password must follow rules
 '''
-
 class Mobile:
     def __init__(self):
         self.__password = ""
@@ -100,17 +99,15 @@ class Employee:
         return self.__salary
 
     def set_designation(self, role):
-        allowed_roles = ["Manager", "developer", "HR"]
-        if role in allowed_roles:
+        if role in ["Manager", "Developer", "HR"]:
             self.__designation = role
 
     def get_designation(self):
         return self.__designation
 
     def increment_salary(self, percent):
-        if 0 <= percent <= 30:
-            increment = (self.__salary * percent) / 100
-            self.__salary += increment
+        if percent <= 30:
+            self.__salary += (self.__salary * percent) / 100
 
 e=Employee()
 e.set_salary(50000)
